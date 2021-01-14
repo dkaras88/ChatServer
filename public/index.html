@@ -1,1 +1,52 @@
 
+<html>
+    <head>     
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        
+        <script src="https://cdn.socket.io/socket.io-1.4.3.js"></script>
+       
+        <script src="/socket.io/socket.io.js"></script>
+
+        <script>
+            var socket = io.connect("http://localhost:8080/");
+            socket.on("newMessage", function(message) {
+                console.log(message);
+            });
+            socket.emit("welcomeServer", {
+                name: "David"
+            });
+            
+            $(document).ready(function() {
+                socket.on("newMessage", function(message) {
+                    $("#chatList").append(
+                        $("<li></li>").text(message.username + ": " + message.message)
+                    );
+                });
+                $("#submit").click(function() {
+                    var username = $("#username").val();
+                    var message = $("#message").val();
+                    $("#chatList").append(
+                        $("<li></li>").text(username + ": " + message)
+                    );
+                    socket.emit("message", {
+                        username: username,
+                        message: message
+                    });
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+             <ul id="chatListe">
+                 <label>Username:</label><input id="username" type="text" /><br />
+                 <label>Message:</label><input id="message" type="text" /><br />
+                 <button id="submit" class="btn btn-primary">Send!</button>
+             </ul>
+        </div>
+        Socket Running 
+    </body>
+</html>
