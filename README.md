@@ -1,5 +1,4 @@
 # ChatServer
-ChatServerNodeJS
 
 #This Project helped me to increase my skills in JavaScript. 
 
