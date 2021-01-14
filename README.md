@@ -1,6 +1,9 @@
 # ChatServer
 ChatServerNodeJS
 
+#This Project helped me to increase my skills in JavaScript. 
+
+
 This Programm Application uses these technologies:
 
 Sockeit.io -> Communication with the Server
