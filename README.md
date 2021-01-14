@@ -4,6 +4,7 @@ ChatServerNodeJS
 This Programm Application uses these technologies:
 
 Sockeit.io -> Communication with the Server
+
 Jquery -> Send the Message for the “Send” button 
 
 1. npm install
